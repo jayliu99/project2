@@ -44,8 +44,6 @@ class Graph:
             if (end != None) and (curr_node == end): 
                 path_exists = True # Turn on flag if end node has been reached
 
-            #print(curr_node)
-
             # For each unvisited neighbors of current node:
             for n in G.neighbors(curr_node):
                 if n not in visited:
@@ -63,16 +61,13 @@ class Graph:
         else:
             if not path_exists:
                 return None
-                #print("Got here B")
             else:
-                #print("Got here C")
                 # Set end as current node & add end to path
                 curr_node = end
                 path.append(end)
 
                 # While current node not start node:
                 while curr_node != start:
-                    #print("Got here D")
                     parent_node = backtrace[curr_node]  # Identify parent node
                     path.append(parent_node)            # Add parent node to path
                     curr_node = parent_node             # Set current node to parent node
